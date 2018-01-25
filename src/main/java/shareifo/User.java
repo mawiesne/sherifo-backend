@@ -1,10 +1,26 @@
 package shareifo;
 
-public class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table
+public class User {
+	
+	@Id
+	@GeneratedValue
 	private long id;
+	
+	@Column
 	private String username;
+	
+	@Column
 	private String password;
+	
+	@Column
 	private boolean isActive;
 	
 	
@@ -17,6 +33,10 @@ public class User {
 		this.isActive = isActive;
 	}
 	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public long getId() {
 		return id;
 	}
