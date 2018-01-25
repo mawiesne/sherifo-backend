@@ -18,23 +18,25 @@ public class DataBaseConnector {
 		
 		System.out.println("START");
 	
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("mysql-database");
-		EntityManager entitymanager = emfactory.
-				createEntityManager( );
-		entitymanager.getTransaction( ).begin( );
-		
-		User user = new User(); 
-		user.setId( 1201 );
-		user.setUsername("test");
-		user.setPassword("asdf");
-		user.setActive(false);
-		entitymanager.persist( user );
-		entitymanager.getTransaction().commit();
-		
-		entitymanager.close();
-		emfactory.close();
-		
-		return;
-	    
+		try {
+			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("mysql-database");
+			EntityManager entitymanager = emfactory.createEntityManager( );
+			entitymanager.getTransaction( ).begin( );
+
+			User user = new User();
+			user.setId( 1201 );
+			user.setUsername("test");
+			user.setPassword("asdf");
+			user.setActive(false);
+			entitymanager.persist( user );
+			entitymanager.getTransaction().commit();
+
+			entitymanager.close();
+			emfactory.close();
+
+		}  catch (Throwable error) {
+			error.printStackTrace();
+		}
+
 	}
 }

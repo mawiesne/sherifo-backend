@@ -17,7 +17,7 @@ public class TestUser {
 	
 	@Test
 	public void setUser() {
-		DataBaseConnector.setUser();
+		//DataBaseConnector.setUser();
 	}
 	
 
